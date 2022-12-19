@@ -33,19 +33,22 @@ export class SidebarComponent implements OnInit {
 
   constructor(private ApiService: ApiService) {}
 
-  ngOnInit(): void {
-    this.ApiService.getPosts().subscribe(
-      (response) => {
-        console.log(response);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
+  ngOnInit(): void {}
 
   onSliderChange($event: any) {
     const isChecked = $event.target.checked;
     console.log(isChecked);
+
+    //creating meeting
+    if(isChecked){
+      this.ApiService.createMeeting().subscribe(
+        (response) => {
+          console.log(response);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
   }
 }
