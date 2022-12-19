@@ -12,7 +12,7 @@ import {
   faPlus,
   faTowerBroadcast,
 } from '@fortawesome/free-solid-svg-icons';
-
+import { ApiService } from '../api.service';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -31,7 +31,21 @@ export class SidebarComponent implements OnInit {
   faPlus = faPlus;
   faTowerBroadcast = faTowerBroadcast;
 
-  constructor() {}
+  constructor(private ApiService: ApiService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.ApiService.getPosts().subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  onSliderChange($event: any) {
+    const isChecked = $event.target.checked;
+    console.log(isChecked);
+  }
 }

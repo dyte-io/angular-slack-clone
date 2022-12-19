@@ -86,13 +86,17 @@
             </div>
         </div>
     </div>
-    <div class="border-t-slack-light border-t-2 pl-4 p-2 text-gray-200 w-64 absolute bottom-0 left-0">
+    <div
+        class="border-t-slack-light border-t-2 pl-4 p-2 text-gray-200 w-64 absolute bottom-0 left-0 flex flex-row justify-between">
         <div>
             <fa-icon class="text-white text-sm mx-1" [icon]="faTowerBroadcast"></fa-icon>
             Huddle
         </div>
         <div>
-            
+            <label class="switch">
+                <input type="checkbox" (change)="onSliderChange($event)">
+                <span class="slider round"></span>
+            </label>
         </div>
     </div>
 </div>
