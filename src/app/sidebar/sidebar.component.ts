@@ -11,6 +11,7 @@ import {
   faHashtag,
   faPlus,
   faTowerBroadcast,
+  faMicrophone,
 } from '@fortawesome/free-solid-svg-icons';
 import { ApiService } from '../api.service';
 @Component({
@@ -30,6 +31,7 @@ export class SidebarComponent implements OnInit {
   faHashtag = faHashtag;
   faPlus = faPlus;
   faTowerBroadcast = faTowerBroadcast;
+  faMicrophone = faMicrophone;
 
   constructor(private ApiService: ApiService) {}
 
@@ -40,7 +42,7 @@ export class SidebarComponent implements OnInit {
     console.log(isChecked);
 
     //creating meeting
-    if(isChecked){
+    if (isChecked) {
       this.ApiService.createMeeting().subscribe(
         (response) => {
           console.log(response);
